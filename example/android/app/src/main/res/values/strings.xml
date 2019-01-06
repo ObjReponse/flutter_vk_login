@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flutter VK Login example</string>
+    <integer name="com_vk_sdk_AppId">YOUR_VK_APP_ID</integer>
+</resources>
