@@ -1,12 +1,12 @@
 package com.objresponse.fluttervklogin;
 
-package ru.masterofservice.masterofservice;
-
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+
+import java.util.List;
 
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKSdk;
@@ -19,6 +19,8 @@ public class FlutterVkLoginPlugin implements MethodCallHandler {
     private static final String LOGOUT_ACTION = "logout";
     private static final String GET_CURRENT_ACCESS_TOKEN = "currentAccessToken";
 
+    private static final String SCOPE_ARGUMENT = "scope";
+
     private final FlutterVKLoginSignInDelegate delegate;
 
     private final String[] defScope = new String[]{
@@ -27,7 +29,7 @@ public class FlutterVkLoginPlugin implements MethodCallHandler {
     };
 
     FlutterVkLoginPlugin(Registrar registrar){
-        delegate = new VKLoginSignInDelegate(registrar);
+        delegate = new FlutterVKLoginSignInDelegate(registrar);
     }
 
     public static void registerWith(Registrar registrar) {
@@ -40,7 +42,11 @@ public class FlutterVkLoginPlugin implements MethodCallHandler {
     public void onMethodCall(MethodCall call, Result result) {
         switch (call.method){
             case LOGIN_ACTION:
-                delegate.logIn(defScope, result);
+                String[] scope = call.argument(SCOPE_ARGUMENT);
+                if (scope.length == 0){
+                    scope = defScope;
+                }
+                delegate.logIn(scope, result);
                 break;
             case LOGOUT_ACTION:
                 delegate.logOut(result);
@@ -61,7 +67,7 @@ public class FlutterVkLoginPlugin implements MethodCallHandler {
 
         FlutterVKLoginSignInDelegate(Registrar registrar){
             this.registrar = registrar;
-            this.resultDelegate = new VKLoginResultDelegate();
+            this.resultDelegate = new FlutterVKLoginResultDelegate();
             registrar.addActivityResultListener(resultDelegate);
         }
 
