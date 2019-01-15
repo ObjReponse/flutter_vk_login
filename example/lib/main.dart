@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         break;
       case VKLoginStatus.error:
         _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+            'Here\'s the error VK gave us: ${result.errorMessage}');
         break;
     }
   }

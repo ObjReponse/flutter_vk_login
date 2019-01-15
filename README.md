@@ -54,7 +54,7 @@ And in your AndroidManifest.xml edit application section to this
 />        
 ```
 
-##Dart usage
+## Dart usage
 ```dart
 final VkLoginResult result =
         await vkSignIn.logIn(['email']);
@@ -76,7 +76,7 @@ final VkLoginResult result =
         break;
       case VKLoginStatus.error:
         _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+            'Here\'s the error VK gave us: ${result.errorMessage}');
         break;
     }
   }
