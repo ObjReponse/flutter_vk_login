@@ -38,13 +38,22 @@ public class FlutterVkLoginPlugin implements MethodCallHandler {
         channel.setMethodCallHandler(plugin);
     }
 
+    private static String[] convertListToArr(List<String> s){
+        String[] s2 = new String[s.size()];
+        s2 = s.toArray(s2);
+        return s2;
+    }
+
     @Override
     public void onMethodCall(MethodCall call, Result result) {
         switch (call.method){
             case LOGIN_ACTION:
-                String[] scope = call.argument(SCOPE_ARGUMENT);
-                if (scope.length == 0){
+                String[] scope;
+                List<String> scopeArg = call.argument(SCOPE_ARGUMENT);
+                if (scopeArg.size() == 0){
                     scope = defScope;
+                }else{
+                    scope = convertListToArr(scopeArg);
                 }
                 delegate.logIn(scope, result);
                 break;
