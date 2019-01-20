@@ -1,8 +1,8 @@
 name: flutter_vk_login
 description: A flutter plugin for allowing users to authenticate with native Android VK sdk.
-version: 0.0.1
+version: 0.0.2
 author: Ustim Reznik <ustim.reznik@gmail.com>
-homepage: 
+homepage: https://github.com/ObjReponse/flutter_vk_login
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
