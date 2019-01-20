@@ -20,15 +20,6 @@ In your android res/values create strings.xml and fill with this examples
 </resources>
 ```
 
-Than, add vksdk dependency in android/app/build.gradle
-
-```gradle
-dependencies{
-    //...your other dependecies
-    api 'com.vk:androidsdk:1.6.9' //or api, I am new to android dev.
-}
-```
-
 Next, in android section off your flutter app create class Application
 ```java
 package com.example.name;
