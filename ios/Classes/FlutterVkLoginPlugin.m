@@ -1,4 +1,5 @@
 #import "FlutterVkLoginPlugin.h"
+#import <VK-ios-sdk/VKSdk.h>
 
 @implementation FlutterVkLoginPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {

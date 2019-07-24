@@ -16,13 +16,14 @@ class _MyAppState extends State<MyApp> {
   String _message = 'Log in/out by pressing the buttons below.';
 
   Future<Null> _login() async {
-    final VkLoginResult result =
-        await vkSignIn.logIn(['email']);
+    print('i will login to vk');
+    try {
+      final VkLoginResult result = await vkSignIn.logIn(['email']);
 
-    switch (result.status) {
-      case VKLoginStatus.loggedIn:
-        final VKAccessToken accessToken = result.token;
-        _showMessage('''
+      switch (result.status) {
+        case VKLoginStatus.loggedIn:
+          final VKAccessToken accessToken = result.token;
+          _showMessage('''
          Logged in!
          
          Token: ${accessToken.token}
@@ -30,14 +31,17 @@ class _MyAppState extends State<MyApp> {
          Expires: ${accessToken.expiresIn}
          Permissions: ${accessToken.scope}
          ''');
-        break;
-      case VKLoginStatus.cancelledByUser:
-        _showMessage('Login cancelled by the user.');
-        break;
-      case VKLoginStatus.error:
-        _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error VK gave us: ${result.errorMessage}');
-        break;
+          break;
+        case VKLoginStatus.cancelledByUser:
+          _showMessage('Login cancelled by the user.');
+          break;
+        case VKLoginStatus.error:
+          _showMessage('Something went wrong with the login process.\n'
+              'Here\'s the error VK gave us: ${result.errorMessage}');
+          break;
+      }
+    } catch (e) {
+      print('bad login to vk, err: \n $e');
     }
   }
 
