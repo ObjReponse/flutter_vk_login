@@ -57,16 +57,16 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>vk6180819</string>
+			<string>vkAPPID</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>vk6180819</string>
+				<string>vkAPPID</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb553023471488095</string>
+				<string>fbAPPID</string>
 			</array>
 		</dict>
 	</array>

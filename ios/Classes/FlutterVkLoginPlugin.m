@@ -19,7 +19,7 @@
     [registrar addApplicationDelegate:instance];
     [registrar addMethodCallDelegate:instance channel:channel];
     
-    [[VKSdk initializeWithAppId:@"6180819"] registerDelegate:self];
+    [[VKSdk initializeWithAppId:@"APPID"] registerDelegate:self];
     [[VKSdk instance] setUiDelegate:self];
 }
 
