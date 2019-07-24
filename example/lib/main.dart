@@ -29,11 +29,19 @@ class _MyAppState extends State<MyApp> {
          Token: ${accessToken.token}
          User id: ${accessToken.userId}
          Expires: ${accessToken.expiresIn}
-         Permissions: ${accessToken.scope}
          ''');
           break;
         case VKLoginStatus.cancelledByUser:
+          final VKAccessToken accessToken = result.token;
           _showMessage('Login cancelled by the user.');
+          _showMessage('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expiresIn}
+         ''');
+
           break;
         case VKLoginStatus.error:
           _showMessage('Something went wrong with the login process.\n'
