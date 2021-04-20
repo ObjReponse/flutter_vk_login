@@ -1,3 +1,6 @@
+# WARNING
+Project deprecated and abandoned. 
+
 # flutter_vk_login
 
 A Flutter plugin for using native android VKSdk.
